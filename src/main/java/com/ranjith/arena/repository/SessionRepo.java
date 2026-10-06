@@ -1,0 +1,1 @@
+package com.ranjith.arena.repository; import com.ranjith.arena.model.InterviewSession; import org.springframework.data.jpa.repository.JpaRepository; public interface SessionRepo extends JpaRepository<InterviewSession,Long>{}

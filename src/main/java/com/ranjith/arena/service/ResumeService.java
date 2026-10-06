@@ -1,0 +1,5 @@
+package com.ranjith.arena.service;
+import com.ranjith.arena.model.Resume; import com.ranjith.arena.repository.ResumeRepo; import org.apache.pdfbox.Loader; import org.apache.pdfbox.pdmodel.PDDocument; import org.apache.pdfbox.text.PDFTextStripper; import org.springframework.stereotype.Service; import org.springframework.web.multipart.MultipartFile; import java.time.LocalDateTime;
+@Service public class ResumeService { private final ResumeRepo repo; public ResumeService(ResumeRepo repo){this.repo=repo;}
+ public Resume save(MultipartFile file,String candidate) throws Exception { if(file==null||file.isEmpty()) throw new IllegalArgumentException("Resume file is empty"); String text; try(PDDocument doc=Loader.loadPDF(file.getBytes())){text=new PDFTextStripper().getText(doc);} Resume r=new Resume(); r.setCandidateName(candidate); r.setFileName(file.getOriginalFilename()); r.setContentType(file.getContentType()); r.setExtractedText(text==null?"":text); r.setUploadedAt(LocalDateTime.now()); return repo.save(r); }
+}

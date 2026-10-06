@@ -1,0 +1,1 @@
+package com.ranjith.arena.repository; import com.ranjith.arena.model.InterviewEvaluation; import org.springframework.data.jpa.repository.JpaRepository; import java.util.Optional; public interface EvaluationRepo extends JpaRepository<InterviewEvaluation,Long>{Optional<InterviewEvaluation> findBySessionId(Long id);}

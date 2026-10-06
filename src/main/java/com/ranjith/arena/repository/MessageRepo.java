@@ -1,0 +1,1 @@
+package com.ranjith.arena.repository; import com.ranjith.arena.model.InterviewMessage; import org.springframework.data.jpa.repository.JpaRepository; import java.util.List; public interface MessageRepo extends JpaRepository<InterviewMessage,Long>{List<InterviewMessage> findBySessionIdOrderByCreatedAtAsc(Long id);}

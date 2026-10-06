@@ -1,0 +1,1 @@
+package com.ranjith.arena.repository; import com.ranjith.arena.model.Resume; import org.springframework.data.jpa.repository.JpaRepository; public interface ResumeRepo extends JpaRepository<Resume,Long>{}
